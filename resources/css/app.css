@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .label {
+    @apply mb-1 block font-medium text-gray-500 dark:text-gray-300;
+  }
+
+  .input {
+    @apply block w-full rounded-md border border-gray-300 p-2 text-gray-500 shadow-sm dark:border-gray-600;
+  }
+
+  .input-error {
+    @apply text-sm text-red-500 dark:text-red-400;
+  }
+
+  .input-filter-l {
+    @apply rounded-t-md rounded-r-none rounded-b-md rounded-l-md border border-gray-200 text-sm font-medium placeholder:text-gray-400 text-gray-600 dark:placeholder:text-gray-600 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400;
+  }
+
+  .input-filter-r {
+    @apply rounded-t-md rounded-r-md rounded-b-none rounded-l-none border border-l-0 border-gray-200 text-sm font-medium placeholder:text-gray-400 text-gray-600 dark:placeholder:text-gray-600 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400;
+  }
+
+  .btn-normal {
+    @apply rounded-md bg-gray-600 p-2 font-medium text-white hover:bg-gray-500;
+  }
+
+  .btn-primary {
+    @apply rounded-md bg-indigo-600 p-2 font-medium text-white hover:bg-indigo-500;
+  }
+
+  .btn-outline {
+    @apply rounded-md border border-gray-300 p-2 shadow-sm hover:border-gray-400 hover:bg-gray-50 dark:border-gray-800 dark:hover:border-gray-700 dark:hover:bg-gray-800;
+  }
+}
