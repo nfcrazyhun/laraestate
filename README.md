@@ -55,7 +55,7 @@ php artisan migrate:refresh --seed
 ```
 10. Set up VirtualHost for the project (recommended: http://laraestate.test )
     > Be sure to update the **APP_URL** line in the .env file according to your VirtualHost.
-11. (Optional) Build frontend assets
+11. Build frontend assets
 ```
 npm install
 npm run build
