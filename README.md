@@ -73,4 +73,7 @@ The project was created using the following software versions:
 - npm 9.5.0
 
 ## Screenshots
-- WIP
+![1pika-1684930651477-1x](https://github.com/nfcrazyhun/laraestate/assets/47859399/ce15789c-4e8a-4011-b719-1096d3c4a26a)
+![2pika-1684931088805-1x](https://github.com/nfcrazyhun/laraestate/assets/47859399/2547ef87-3aba-4975-94cd-a46dbdae44c1)
+![3pika-1684930761695-1x](https://github.com/nfcrazyhun/laraestate/assets/47859399/96c3ec21-4406-43fa-8723-0d1759f377a6)
+![4pika-1684930713243-1x](https://github.com/nfcrazyhun/laraestate/assets/47859399/4b68af72-7df7-4f50-8f83-80390591fe26)
