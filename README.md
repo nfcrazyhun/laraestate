@@ -20,7 +20,6 @@ _**Disclaimer: This application made for learning purposes only.**_
 - Visitors can calculate their mortgage and, of course, they can make offers.
 - Users must register to post real estates and make offers.
 - Offer notifications in-app and via email.
-- Realtors can delete and restore listings.
 
 ## Installation guide
 1. Open a terminal  
