@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Auth\LoginRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
@@ -13,12 +14,9 @@ class AuthController extends Controller
         return inertia('Auth/Login');
     }
 
-    public function store(Request $request)
+    public function store(LoginRequest $request)
     {
-        if (!Auth::attempt($request->validate([
-            'email' => 'required|string|email',
-            'password' => 'required|string'
-        ]), true)) {
+        if (!Auth::attempt($request->validated(), true)) {
             throw ValidationException::withMessages([
                 'email' => 'Authentication failed'
             ]);

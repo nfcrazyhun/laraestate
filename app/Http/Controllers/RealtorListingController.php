@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RealtorListingStoreRequest;
+use App\Http\Requests\RealtorListingUpdateRequest;
 use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -57,22 +59,13 @@ class RealtorListingController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  RealtorListingStoreRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RealtorListingStoreRequest $request)
     {
         $request->user()->listings()->create(
-            $request->validate([
-                'beds' => 'required|integer|min:0|max:20',
-                'baths' => 'required|integer|min:0|max:20',
-                'area' => 'required|integer|min:15|max:1500',
-                'city' => 'required',
-                'code' => 'required',
-                'street' => 'required',
-                'street_nr' => 'required|min:1|max:1000',
-                'price' => 'required|integer|min:1|max:20000000',
-            ])
+            $request->validated()
         );
 
         return redirect()->route('realtor.listing.index')
@@ -89,19 +82,10 @@ class RealtorListingController extends Controller
         );
     }
 
-    public function update(Request $request, Listing $listing)
+    public function update(RealtorListingUpdateRequest $request, Listing $listing)
     {
         $listing->update(
-            $request->validate([
-                'beds' => 'required|integer|min:0|max:20',
-                'baths' => 'required|integer|min:0|max:20',
-                'area' => 'required|integer|min:15|max:1500',
-                'city' => 'required',
-                'code' => 'required',
-                'street' => 'required',
-                'street_nr' => 'required|min:1|max:1000',
-                'price' => 'required|integer|min:1|max:20000000',
-            ])
+            $request->validated()
         );
 
         return redirect()->route('realtor.listing.index')

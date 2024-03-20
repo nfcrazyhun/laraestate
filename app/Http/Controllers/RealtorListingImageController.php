@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RealtorListingImageStoreRequest;
 use App\Models\Listing;
 use App\Models\ListingImage;
 use Illuminate\Http\Request;
@@ -18,14 +19,10 @@ class RealtorListingImageController extends Controller
         );
     }
 
-    public function store(Listing $listing, Request $request)
+    public function store(Listing $listing, RealtorListingImageStoreRequest $request)
     {
         if ($request->hasFile('images')) {
-            $request->validate([
-                'images.*' => 'mimes:jpg,png,jpeg,webp|max:5000'
-            ], [
-                'images.*.mimes' => 'The file should be in one of the formats: jpg, png, jpeg, webp'
-            ]);
+            $request->validated();
 
             foreach ($request->file('images') as $file) {
                 $path = $file->store('images', 'public');
