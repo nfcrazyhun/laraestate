@@ -5,12 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests\RealtorListingImageStoreRequest;
 use App\Models\Listing;
 use App\Models\ListingImage;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class RealtorListingImageController extends Controller
 {
-    public function create(Listing $listing)
+    public function create(Listing $listing): \Inertia\Response
     {
         $listing->load(['images']);
         return inertia(
@@ -19,7 +18,7 @@ class RealtorListingImageController extends Controller
         );
     }
 
-    public function store(Listing $listing, RealtorListingImageStoreRequest $request)
+    public function store(Listing $listing, RealtorListingImageStoreRequest $request): \Illuminate\Http\RedirectResponse
     {
         if ($request->hasFile('images')) {
             $request->validated();
@@ -36,7 +35,7 @@ class RealtorListingImageController extends Controller
         return redirect()->back()->with('success', 'Images uploaded!');
     }
 
-    public function destroy($listing, ListingImage $image)
+    public function destroy($listing, ListingImage $image): \Illuminate\Http\RedirectResponse
     {
         Storage::disk('public')->delete($image->filename);
         $image->delete();

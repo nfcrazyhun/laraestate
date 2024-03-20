@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Offer;
-use Illuminate\Http\Request;
 
 class RealtorListingAcceptOfferController extends Controller
 {
-    public function __invoke(Offer $offer)
+    public function __invoke(Offer $offer): \Illuminate\Http\RedirectResponse
     {
         $listing = $offer->listing;
         $this->authorize('update', $listing);

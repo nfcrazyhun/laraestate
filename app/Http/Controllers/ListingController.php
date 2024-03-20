@@ -15,10 +15,8 @@ class ListingController extends Controller
 
     /**
      * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Request $request): \Inertia\Response
     {
         $filters = $request->only([
             'priceFrom', 'priceTo', 'beds', 'baths', 'areaFrom', 'areaTo'
@@ -39,11 +37,8 @@ class ListingController extends Controller
 
     /**
      * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
-    public function show(Listing $listing)
+    public function show(Listing $listing): \Inertia\Response
     {
         // if (Auth::user()->cannot('view', $listing)) {
         //     abort(403);

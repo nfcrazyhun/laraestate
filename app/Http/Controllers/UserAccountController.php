@@ -9,12 +9,12 @@ use Illuminate\Support\Facades\Auth;
 
 class UserAccountController extends Controller
 {
-    public function create()
+    public function create(): \Inertia\Response
     {
         return inertia('UserAccount/Create');
     }
 
-    public function store(RegisterRequest $request)
+    public function store(RegisterRequest $request): \Illuminate\Http\RedirectResponse
     {
         $user = User::create($request->validated());
 

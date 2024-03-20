@@ -9,12 +9,12 @@ use Illuminate\Validation\ValidationException;
 
 class AuthController extends Controller
 {
-    public function create()
+    public function create(): \Inertia\Response
     {
         return inertia('Auth/Login');
     }
 
-    public function store(LoginRequest $request)
+    public function store(LoginRequest $request): \Illuminate\Http\RedirectResponse
     {
         if (!Auth::attempt($request->validated(), true)) {
             throw ValidationException::withMessages([
@@ -27,7 +27,7 @@ class AuthController extends Controller
         return redirect()->intended('/listing');
     }
 
-    public function destroy(Request $request)
+    public function destroy(Request $request): \Illuminate\Http\RedirectResponse
     {
         Auth::logout();
 

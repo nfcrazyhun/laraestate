@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Inertia\Response;
 
 class NotificationController extends Controller
 {
-    public function index(Request $request): Response
+    public function index(Request $request): \Inertia\Response
     {
         return inertia(
             'Notification/Index',

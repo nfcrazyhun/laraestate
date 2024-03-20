@@ -15,7 +15,7 @@ class RealtorListingController extends Controller
         $this->authorizeResource(Listing::class, 'listing');
     }
 
-    public function index(Request $request)
+    public function index(Request $request): \Inertia\Response
     {
         $filters = [
             'deleted' => $request->boolean('deleted'),
@@ -37,7 +37,7 @@ class RealtorListingController extends Controller
         );
     }
 
-    public function show(Listing $listing)
+    public function show(Listing $listing): \Inertia\Response
     {
         return inertia(
             'Realtor/Show',
@@ -47,10 +47,8 @@ class RealtorListingController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(): \Inertia\Response
     {
         // $this->authorize('create', Listing::class);
         return inertia('Realtor/Create');
@@ -58,11 +56,8 @@ class RealtorListingController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
-     * @param  RealtorListingStoreRequest  $request
-     * @return \Illuminate\Http\Response
      */
-    public function store(RealtorListingStoreRequest $request)
+    public function store(RealtorListingStoreRequest $request): \Illuminate\Http\RedirectResponse
     {
         $request->user()->listings()->create(
             $request->validated()
@@ -72,7 +67,7 @@ class RealtorListingController extends Controller
             ->with('success', 'Listing was created!');
     }
 
-    public function edit(Listing $listing)
+    public function edit(Listing $listing): \Inertia\Response
     {
         return inertia(
             'Realtor/Edit',
@@ -82,7 +77,7 @@ class RealtorListingController extends Controller
         );
     }
 
-    public function update(RealtorListingUpdateRequest $request, Listing $listing)
+    public function update(RealtorListingUpdateRequest $request, Listing $listing): \Illuminate\Http\RedirectResponse
     {
         $listing->update(
             $request->validated()
@@ -92,7 +87,7 @@ class RealtorListingController extends Controller
             ->with('success', 'Listing was changed!');
     }
 
-    public function destroy(Listing $listing)
+    public function destroy(Listing $listing): \Illuminate\Http\RedirectResponse
     {
         $listing->deleteOrFail();
 
@@ -100,7 +95,7 @@ class RealtorListingController extends Controller
             ->with('success', 'Listing was deleted!');
     }
 
-    public function restore(Listing $listing)
+    public function restore(Listing $listing): \Illuminate\Http\RedirectResponse
     {
         $listing->restore();
 
