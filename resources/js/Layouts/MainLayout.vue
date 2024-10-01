@@ -43,16 +43,16 @@
 
 <script setup>
 import { computed } from 'vue'
-import { Link, usePage } from '@inertiajs/inertia-vue3'
+import { Link, usePage } from '@inertiajs/vue3'
 
 const page = usePage()
 const flashSuccess = computed(
-  () => page.props.value.flash.success,
+  () => page.props.flash.success,
 )
 const user = computed(
-  () => page.props.value.user,
+  () => page.props.user,
 )
 const notificationCount = computed(
-  () => Math.min(page.props.value.user.notificationCount, 9),
+  () => Math.min(page.props.user.notificationCount, 9),
 )
 </script>

@@ -63,13 +63,13 @@ npm run build
 
 ## Note
 The project was created using the following software versions:
-- PHP 8.2.5
-- Vue.js 3.2.39
-- Inertia.js 0.11.0
-- Laravel Framework 10.8.0
-- Tailwind CSS 3.1.8
-- node 18.14.2
-- npm 9.5.0
+- PHP 8.3.12
+- Vue.js 3.5.10
+- Inertia.js 1.3.0
+- Laravel Framework 11.25.0
+- Tailwind CSS 3.4.13
+- node 20.17.0
+- npm 10.8.2
 
 ## Screenshots
 ![1pika-1684930651477-1x](https://github.com/nfcrazyhun/laraestate/assets/47859399/ce15789c-4e8a-4011-b719-1096d3c4a26a)
